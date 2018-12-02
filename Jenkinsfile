@@ -1,7 +1,7 @@
 pipeline
 {
  agent any
- 
+ stages{
  stage ('compile stage') 
    {
      steps 
@@ -9,4 +9,5 @@ pipeline
           sh 'mvn clean compile' 
              }
         }
+}
 }
