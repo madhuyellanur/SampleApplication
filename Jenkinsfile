@@ -1,8 +1,8 @@
 pipeline
 {
  agent sample 
-{
-stages("compile stage")
+
+ stage("compile stage")
  {
   steps
   {
@@ -18,5 +18,5 @@ stages("compile stage")
       sh 'mvn test' 
      }
   }
-}
+
 }
