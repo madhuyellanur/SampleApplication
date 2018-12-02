@@ -1,15 +1,20 @@
 pipeline
 {
-node
+ agent sample 
 {
-stage(build)
+stages("compile stage")
  {
-  mvn build
+  withMaven (maven : 'apache-maven-3.5.4')
+   sh 'mvn clean compile' 
  }
  
- stage(test)
+ stage("Test Stage")
  {
-  mvn test
- }
+   steps
+     {
+      withMaven (maven : 'apache-maven-3.5.4')
+      sh 'mvn test' 
+     }
+  }
 }
 }
