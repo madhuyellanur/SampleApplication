@@ -1,14 +1,15 @@
-pipeline
-{
- agent any
- stages{
- stage ('compile stage') 
-   {
-     steps 
-        {
-         
-         mvn 'clean' 
-             }
-        }
+node {
+
+stage("checkout")
+  {
+    
+   git "https://github.com/madhuyellanur/SampleApplication.git/"
+  }
+  
+stage("compile")
+  {
+  def mvnHOME = tool name: 'apache-maven-3.5.4', type: 'maven'
+    sh ="${mvnHOME}/bin/mvn package"
 }
+  
 }
